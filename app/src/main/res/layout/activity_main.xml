@@ -7,6 +7,16 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/lblForZGryo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="35dp"
+        android:text="Z Gyro"
+        app:layout_constraintStart_toEndOf="@+id/lblforZDiff"
+        app:layout_constraintTop_toBottomOf="@+id/lblForYGryo" />
+
+    <TextView
         android:id="@+id/lblZDiff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="0"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/lblforX"
@@ -55,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="225dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="0"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/lblforX"
@@ -100,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_marginStart="62dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="X Axis:"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +189,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="125dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="0"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/lblforX"
@@ -272,5 +282,79 @@
         app:layout_constraintEnd_toStartOf="@+id/btnClear"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblNumKnocks" />
+
+    <TextView
+        android:id="@+id/lblForXGryo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="35dp"
+        android:text="X Gyro"
+        app:layout_constraintStart_toEndOf="@+id/lblforXDiff"
+        app:layout_constraintTop_toBottomOf="@+id/lblforZ" />
+
+    <TextView
+        android:id="@+id/lblForYGryo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="35dp"
+        android:text="Y Gyro"
+        app:layout_constraintStart_toEndOf="@+id/lblforYDiff"
+        app:layout_constraintTop_toBottomOf="@+id/lblForXGryo" />
+
+    <TextView
+        android:id="@+id/lblXGyro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="35dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/lblforXDiff"
+        app:layout_constraintTop_toBottomOf="@+id/lblforZ" />
+
+    <TextView
+        android:id="@+id/lblYGyro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="35dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/lblforYDiff"
+        app:layout_constraintTop_toBottomOf="@+id/lblXGyro" />
+
+    <TextView
+        android:id="@+id/lblZGyro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="35dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/lblforZDiff"
+        app:layout_constraintTop_toBottomOf="@+id/lblYGyro" />
+
+    <TextView
+        android:id="@+id/lblForGForce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="35dp"
+        android:text="G Force:"
+        app:layout_constraintStart_toEndOf="@+id/lblforXDiff"
+        app:layout_constraintTop_toBottomOf="@+id/lblZFilt" />
+
+    <TextView
+        android:id="@+id/lblGForce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="15dp"
+        android:text="0"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/lblforYDiff"
+        app:layout_constraintTop_toBottomOf="@+id/lblForGForce" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
