@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int increment = 0;
     private SensorManager sensorManager;
 
+    private long triggerTime = 0;
+    private long currentTime = 0;
 
     private Sensor accel;
     private Sensor gyro;
@@ -84,8 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         gyro = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
-        sensorManager.registerListener(this, accel, SensorManager.SENSOR_DELAY_NORMAL);
-        sensorManager.registerListener(this, gyro, sensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, accel, SensorManager.SENSOR_DELAY_FASTEST);
+        sensorManager.registerListener(this, gyro, sensorManager.SENSOR_DELAY_FASTEST);
 
         lblXAccel = findViewById(R.id.lblXAxis);
         lblYAccel = findViewById(R.id.lblYAxis);
@@ -165,11 +167,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 lblZMax.setText(df4.format(z));
                 zMax = z;
             }
-            if (z > 9.84) {
+            if (z > 10) {
                 if (xGyro < 0.001 && yGyro < 0.001 && zGyro < 0.001) {
-                numKnocks++;
-                lblNumKnocks.setText(String.valueOf(numKnocks));
-                lblRecordedKnocks.append("\n" + String.valueOf(z));
+                    //It's a knock, (probably)
+                    currentTime = System.nanoTime();
+                    if(triggerTime == 0){
+                        triggerTime = currentTime;
+                        numKnocks++;
+                        lblNumKnocks.setText(String.valueOf(numKnocks));
+                        lblRecordedKnocks.append("\n" + String.valueOf(z));
+                    }else if((currentTime-triggerTime)/1000000 > 100){
+                        numKnocks++;
+                        lblNumKnocks.setText(String.valueOf(numKnocks));
+                        lblRecordedKnocks.append("\n" + String.valueOf(z));
+                        triggerTime = currentTime;
+                    }
                 }
             }
             lblXAccel.setText(df2.format(x));
